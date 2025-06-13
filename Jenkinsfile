@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage ('clone') {
             steps {
-                git 'https://github.com/spring-projects/spring-petclinic.git'
+                git 'https://github.com/Raheedilliwar/ansibleuatomation.git'
             }
         }
 
