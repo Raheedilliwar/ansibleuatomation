@@ -1,0 +1,15 @@
+- name: Deploy Spring Boot App to EC2
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Copy JAR to server
+      copy:
+        src: target/spring-petclinic-2.7.0.jar
+        dest: /opt/springapp/springapp.jar
+        mode: 0755
+
+    - name: Start app with systemd
+      systemd:
+        name: springapp
+        state: restarted
+        enabled: yes
